@@ -1,5 +1,7 @@
 # cngo v1
-Fast Golang Tool take a filename with domains and get cname for every domain
+> **Fast Golang Tool take a filename with domains and get cname for every domain**
+
+
 ![Image of Cngo](https://i.imgur.com/zQ6cMYF.gif)
 
 # Install
