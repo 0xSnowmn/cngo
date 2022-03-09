@@ -18,7 +18,7 @@ import (
 // Setting Options For Args
 
 var opts struct {
-	// File name arg (required to run Script)
+	// File name arg (required to run Script) okey
 	File string `short:"f" long:"file" description:"Subdomains File" required:"true"`
 	// Timeout For the http get Requets
 	Timeout int `short:"t" long:"timeout" description:"Timeout For Requests" `
