@@ -1,0 +1,30 @@
+name: Count Lines of Code
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  count-loc:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Count lines of code
+      id: count-loc
+      run: |
+        # Use cloc to count lines of code
+        echo "Lines of code:"
+        cloc --quiet --csv --out=cloc.csv .
+        LOC=$(awk -F, '{sum += $5} END {print sum}' cloc.csv)
+        echo "Total lines of code: $LOC"
+        echo "::set-output name=loc::$LOC"
+
+    - name: Output lines of code
+      run: echo "Total lines of code: ${{ steps.count-loc.outputs.loc }}"
